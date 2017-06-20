@@ -9,13 +9,14 @@
       <h1><a href="#">Blog construído em Django</a></h1>
     </div>
 
-    <div>
-      <p>Publishe 20.06.2017, 11:18</p>
-      <h2><a href="#">Meu primeiro post</a></h2>
-      <p> Esse blog foi construído para publicações
-        de vários assuntos motivacionais</p>
-
-    </div>
+    <!-- CHAMA A VARIAVEL POST DA view-->
+    {% for post in posts %}
+        <div>
+          <p>published: {{ post.published_date }}</p>
+          <h1><a href="#">{{ post.title }}</a></h1>
+          <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 
   </body>
 </html>
