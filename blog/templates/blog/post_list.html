@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Blog construído em Django 1.11</title>
-  </head>
-  <body>
-    <div>
-      <h1><a href="#">Blog construído em Django</a></h1>
-    </div>
+{% extends 'blog/base.html' %}
 
-    <!-- CHAMA A VARIAVEL POST DA view-->
-    {% for post in posts %}
-        <div>
-          <p>published: {{ post.published_date }}</p>
-          <h1><a href="#">{{ post.title }}</a></h1>
-          <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
-
-  </body>
-</html>
+          {% block content %}
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                      Published em {{ post.published_date }}
+                    </div>
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+          {% endblock content %}
