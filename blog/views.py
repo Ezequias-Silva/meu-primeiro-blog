@@ -43,3 +43,6 @@ def post_edit(request, pk):
 
 def post_historia(request):
     return render(request, 'blog/post_historia.html', {})
+
+def post_ficarrico(request):
+    return render(request, 'blog/post_ficarrico.html', {})
